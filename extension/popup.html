@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --bg: #1a1a1a;
+      --text: #ffffff;
+      --success: #22c55e;
+      --error: #ef4444;
+    }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      width: 300px;
+      padding: 16px;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+    h3 {
+      margin: 0 0 16px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-align: center;
+    }
+    #summarizeBtn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: var(--primary);
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    #summarizeBtn:hover {
+      opacity: 0.9;
+    }
+    #summarizeBtn:active {
+      transform: scale(0.98);
+    }
+    #status {
+      margin-top: 12px;
+      padding: 8px;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    #status.show {
+      opacity: 1;
+    }
+    #status.success {
+      background: var(--success);
+      color: var(--text);
+    }
+    #status.error {
+      background: var(--error);
+      color: var(--text);
+    }
+    .loading {
+      display: none;
+      margin: 12px auto 0;
+      width: 24px;
+      height: 24px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: var(--text);
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <h3>Smart Summarizer</h3>
+  <button id="summarizeBtn">Summarize Page</button>
+  <div class="loading"></div>
+  <div id="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
